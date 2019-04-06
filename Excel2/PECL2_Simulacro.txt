@@ -1,0 +1,54 @@
+ILF: 1 de cada nivel = 32
+EIF: 1 de cada nivel = 22
+EO:  1 de cada nivel = 16
+EI:  1 de cada nivel = 13
+EQ:  1 de cada nivel = 13
+
+PFSA = 32 + 22 + 16 + 13 + 13 = 96
+GTI = 33
+VFA = 0,98
+PFA = 94,08
+
+Para PFSA --> Lenguaje = Assembler --> 20448
+Para PFA  --> Lenguaje = Query     --> 1223,04
+
+-Factores de Ajuste
+RELY 0,82
+DATA 0,9
+CPLX 1
+RUSE 1,07
+DOCU 1,23
+TIME 1,63
+STOR 1
+PVOL 1,15
+ACAP 0,71
+PCAP 1,34
+AEXP 1,1
+PEXP 1
+LTEX 0,91
+PCON 0,81
+TOOL 1,17
+SITE 1,09
+SCED 1,43
+
+EM   2,56
+EM-sin-SCED 1,79
+
+PREC MB	6,2
+FLEX B	4,05
+RESL A	2,83
+TEAM MA	1,1
+PMAT EA	0
+SUMA 14,18
+
+
+--Resultados
+PM_nominal=2,94
+PM_estimado=7,53
+PM_estimado_sin_SCED=5,27
+EM=2,56
+EM_sin_SCED=1,79
+SCED%=1,43
+B=1,05
+TDEV=8,47
+A=2,94
