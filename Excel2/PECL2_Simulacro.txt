@@ -43,12 +43,15 @@ SUMA 14,18
 
 
 --Resultados
-PM_nominal=2,94
-PM_estimado=7,53
-PM_estimado_sin_SCED=5,27
+PM_nominal=70,29
+PM_estimado=180,03
+PM_estimado_sin_SCED=125,9
 EM=2,56
 EM_sin_SCED=1,79
-SCED%=1,43
+	
+SCED%=1,43-->143%
 B=1,05
-TDEV=8,47
+TDEV=21,16
+	
+	
 A=2,94
