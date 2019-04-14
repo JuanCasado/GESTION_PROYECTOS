@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1" last-position="0,0" last-zoom="1.05"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="Contacto de Empresa" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="60"/>
+	<column name="Nombre de la empresa" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Nombre de la Persona de Contacto" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Actividad de la Empresa">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Fecha de Contacto Inicial">
+		<type name="date" length="0"/>
+	</column>
+	<column name="Dirección Postal">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Ciudad">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Provincia">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Código Postal">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Número de Teléfono">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Número de Fax">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Contacto de Empresa_pk" type="pk-constr" table="public.&quot;Contacto de Empresa&quot;">
+		<columns names="Nombre de la empresa,Nombre de la Persona de Contacto" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Contrato" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="580" y="60"/>
+	<column name="Fecha de Formalización de Contrato">
+		<type name="date" length="0"/>
+	</column>
+	<column name="Notas">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Fecha de Formalización de Contrato_Constraint" type="uq-constr" table="public.&quot;Contrato&quot;">
+		<columns names="Fecha de Formalización de Contrato" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="Nombre de la Persona de Contacto_Contacto de Empresa" index="1"/>
+		<object name="Nombre de la empresa_Contacto de Empresa" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Contacto de Empresa_fk" index="0"/>
+		<object name="Contrato_pk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="Paquete de Información" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="580" y="200"/>
+	<column name="Dirección de Envío" not-null="true">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Código Postal">
+		<type name="text" length="0"/>
+	</column>
+	<column name="Fecha de Envío">
+		<type name="date" length="0"/>
+	</column>
+	<constraint name="Paquete de Información_pk" type="pk-constr" table="public.&quot;Paquete de Información&quot;">
+		<columns names="Dirección de Envío" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="Nombre de la Persona de Contacto_Contacto de Empresa_C_4214" index="1"/>
+		<object name="Nombre de la empresa_Contacto de Empresa_Contrato" index="0"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Contrato_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="Contacto de Empresa_tiene_muchos_Contrato" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Contacto de Empresa&quot;"
+	 dst-table="public.&quot;Contrato&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="6.96155" y="-69.7607"/>
+	</label>
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<relationship name="Contrato_tiene_muchos_Paquete de Información" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#83af1f"
+	 src-table="public.&quot;Contrato&quot;"
+	 dst-table="public.&quot;Paquete de Información&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="140.395" y="-9.76066"/>
+	</label>
+	<special-pk-cols indexes="0,1"/>
+</relationship>
+
+<table name="Fichero de Errores" hide-ext-attribs="true">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="20" y="260"/>
+	<column name="Id_Error" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="c1">
+		<type name="text" length="0"/>
+	</column>
+	<column name="c2">
+		<type name="text" length="0"/>
+	</column>
+	<column name="c3">
+		<type name="text" length="0"/>
+	</column>
+	<column name="c4">
+		<type name="text" length="0"/>
+	</column>
+	<constraint name="Fichero de Errores_pk" type="pk-constr" table="public.&quot;Fichero de Errores&quot;">
+		<columns names="Id_Error" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+</dbmodel>
